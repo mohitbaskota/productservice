@@ -14,6 +14,6 @@ public class ProductService {
     }
 
     public Product getProductById(Long productId) {
-        return productDataSource.getProductDetails(productId);
+        return productDataSource.getProductDetailsById(productId);
     }
 }
