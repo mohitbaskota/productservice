@@ -17,6 +17,10 @@ public class Product {
     // Current price of the product
     private Currency currentPrice;
 
+    public Product() {
+    }
+
+
     public Product(Long id, String name, Currency currentPrice) {
         this.id = id;
         this.name = name;

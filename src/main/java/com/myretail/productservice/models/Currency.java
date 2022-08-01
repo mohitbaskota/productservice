@@ -14,6 +14,9 @@ public class Currency {
     // The ISO code of the currency. eg. USD, CAD, AUD etc..
     private String currencyCode;
 
+    public Currency() {
+    }
+
     public Currency(float value, String currencyCode) {
         this.value = value;
         this.currencyCode = currencyCode;
