@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class RedSkyDataSource implements ProductDataSource {
 
     @Override
-    public Product getProductDetails(Long productId) {
+    public Product getProductDetailsById(Long productId) {
         return null;
     }
 }

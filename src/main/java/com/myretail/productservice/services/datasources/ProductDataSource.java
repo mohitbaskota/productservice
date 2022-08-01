@@ -9,6 +9,6 @@ public interface ProductDataSource {
      * @param productId - product id of the product
      * @return returns the Product model hydrated with the details.
      */
-    Product getProductDetails(Long productId);
+    Product getProductDetailsById(Long productId);
 
 }
