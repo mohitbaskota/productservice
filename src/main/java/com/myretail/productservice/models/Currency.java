@@ -2,9 +2,16 @@ package com.myretail.productservice.models;
 
 import java.util.Objects;
 
+/**
+ * Currency model that represents a general currency structure that will be
+ * exposed to the REST endpoints.
+ */
 public class Currency {
 
+    // numeric value of the currency
     private float value;
+
+    // The ISO code of the currency. eg. USD, CAD, AUD etc..
     private String currencyCode;
 
     public Currency(float value, String currencyCode) {

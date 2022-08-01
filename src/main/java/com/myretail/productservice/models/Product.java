@@ -2,16 +2,25 @@ package com.myretail.productservice.models;
 
 import java.util.Objects;
 
+/**
+ * Product model which represents a product and includes the fields that are
+ * exposed to the REST endpoints.
+ */
 public class Product {
 
+    // Product Id
     private Long id;
-    private String name;
-    private Currency current_price;
 
-    public Product(Long id, String name, Currency current_price) {
+    // product Name
+    private String name;
+
+    // Current price of the product
+    private Currency currentPrice;
+
+    public Product(Long id, String name, Currency currentPrice) {
         this.id = id;
         this.name = name;
-        this.current_price = current_price;
+        this.currentPrice = currentPrice;
     }
 
     public Long getId() {
@@ -30,12 +39,12 @@ public class Product {
         this.name = name;
     }
 
-    public Currency getCurrent_price() {
-        return current_price;
+    public Currency getCurrentPrice() {
+        return currentPrice;
     }
 
-    public void setCurrent_price(Currency current_price) {
-        this.current_price = current_price;
+    public void setCurrentPrice(Currency currentPrice) {
+        this.currentPrice = currentPrice;
     }
 
     @Override
@@ -45,11 +54,11 @@ public class Product {
         Product product = (Product) o;
         return getId().equals(product.getId()) &&
                 getName().equals(product.getName()) &&
-                getCurrent_price().equals(product.getCurrent_price());
+                getCurrentPrice().equals(product.getCurrentPrice());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getCurrent_price());
+        return Objects.hash(getId(), getName(), getCurrentPrice());
     }
 }
