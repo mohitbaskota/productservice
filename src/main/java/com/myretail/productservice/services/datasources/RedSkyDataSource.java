@@ -1,6 +1,7 @@
 package com.myretail.productservice.services.datasources;
 
 import com.myretail.productservice.models.Product;
+import com.myretail.productservice.models.RedSkyResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -27,7 +28,7 @@ public class RedSkyDataSource implements ProductDataSource {
                         .build()
                 )
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(RedSkyResponse.class)
                 .block();
         return null;
     }
