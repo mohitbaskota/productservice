@@ -1,19 +1,31 @@
 package com.myretail.productservice.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
+@ConfigurationProperties(prefix = "app")
 public class AppConfig {
 
-    @Bean
-    public WebClient getRedSkyWebclient() {
-        return WebClient.builder()
-                .baseUrl("https://redsky-uat.perf.target.com")
-                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .build();
+    private String redskyKey;
+    private String redskyUrl;
+
+    public AppConfig() {
+    }
+
+    public String getRedskyKey() {
+        return redskyKey;
+    }
+
+    public void setRedskyKey(String redskyKey) {
+        this.redskyKey = redskyKey;
+    }
+
+    public String getRedskyUrl() {
+        return redskyUrl;
+    }
+
+    public void setRedskyUrl(String redskyUrl) {
+        this.redskyUrl = redskyUrl;
     }
 }
