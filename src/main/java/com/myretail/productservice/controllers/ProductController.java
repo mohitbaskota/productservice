@@ -1,11 +1,9 @@
 package com.myretail.productservice.controllers;
 
+import com.myretail.productservice.exceptions.ServiceException;
 import com.myretail.productservice.models.Product;
 import com.myretail.productservice.services.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/products")
@@ -17,6 +15,7 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @ExceptionHandler({ServiceException.class})
     @GetMapping("/{productId}")
     public Product getProductById(@PathVariable Long productId) {
         return productService.getProductById(productId);
