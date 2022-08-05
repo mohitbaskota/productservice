@@ -1,6 +1,6 @@
 package com.myretail.productservice.services.datasources;
 
-import com.myretail.productservice.models.Product;
+import com.myretail.productservice.dto.Product;
 
 public interface ProductDataSource {
 

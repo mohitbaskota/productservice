@@ -2,10 +2,9 @@ package com.myretail.productservice.services.datasources;
 
 import com.myretail.productservice.config.AppConfig;
 import com.myretail.productservice.exceptions.ServiceException;
-import com.myretail.productservice.models.Product;
-import com.myretail.productservice.models.Redsky.Data;
-import com.myretail.productservice.models.Redsky.ProductDetailsResponse;
-import com.myretail.productservice.models.Redsky.RedSkyProduct;
+import com.myretail.productservice.dto.Product;
+import com.myretail.productservice.dto.Redsky.ProductDetailsResponse;
+import com.myretail.productservice.dto.Redsky.RedSkyProduct;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;

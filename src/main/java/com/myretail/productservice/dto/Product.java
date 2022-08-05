@@ -1,4 +1,4 @@
-package com.myretail.productservice.models;
+package com.myretail.productservice.dto;
 
 import java.util.Objects;
 

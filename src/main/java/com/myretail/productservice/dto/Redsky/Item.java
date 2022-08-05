@@ -1,4 +1,4 @@
-package com.myretail.productservice.models.Redsky;
+package com.myretail.productservice.dto.Redsky;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

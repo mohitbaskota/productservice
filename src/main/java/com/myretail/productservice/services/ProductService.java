@@ -1,7 +1,7 @@
 package com.myretail.productservice.services;
 
 import com.myretail.productservice.exceptions.ServiceException;
-import com.myretail.productservice.models.Product;
+import com.myretail.productservice.dto.Product;
 import com.myretail.productservice.services.datasources.ProductDataSource;
 import org.springframework.stereotype.Service;
 
