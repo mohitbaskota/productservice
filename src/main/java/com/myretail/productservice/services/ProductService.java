@@ -1,5 +1,6 @@
 package com.myretail.productservice.services;
 
+import com.myretail.productservice.exceptions.ServiceException;
 import com.myretail.productservice.models.Product;
 import com.myretail.productservice.services.datasources.ProductDataSource;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,15 @@ public class ProductService {
     }
 
     public Product getProductById(Long productId) {
-        return productDataSource.getProductDetailsById(productId);
+
+        try {
+            Product product = productDataSource.getProductDetailsById(productId);
+            // need to handle null product case
+            //todo -- fetch the currency data from nosql
+            return product;
+        } catch (ServiceException e) {
+            //todo log
+            throw e;
+        }
     }
 }
