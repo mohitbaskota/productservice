@@ -1,5 +1,7 @@
 package com.myretail.productservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 /**
@@ -12,6 +14,7 @@ public class Currency {
     private float value;
 
     // The ISO code of the currency. eg. USD, CAD, AUD etc..
+    @JsonProperty("currency_code")
     private String currencyCode;
 
     public Currency() {

@@ -25,7 +25,7 @@ public class RedSkyDataSourceService implements ProductDataSourceService {
     private final static String productPath = "/redsky_aggregations/v1/redsky/case_study_v1";
 
     @Override
-    public Product getProductDetailsById(Long productId) throws ServiceException{
+    public Product getProductDetailsById(Long productId) throws ServiceException {
 
         ProductDetailsResponse resp = client.get()
                 .uri(uriBuilder -> uriBuilder
