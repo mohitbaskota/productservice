@@ -1,24 +1,23 @@
-package com.myretail.productservice.services.datasources;
+package com.myretail.productservice.services.externalsourceservices;
 
 import com.myretail.productservice.config.AppConfig;
 import com.myretail.productservice.exceptions.ServiceException;
-import com.myretail.productservice.models.Product;
-import com.myretail.productservice.models.Redsky.Data;
-import com.myretail.productservice.models.Redsky.ProductDetailsResponse;
-import com.myretail.productservice.models.Redsky.RedSkyProduct;
+import com.myretail.productservice.dto.Product;
+import com.myretail.productservice.dto.Redsky.ProductDetailsResponse;
+import com.myretail.productservice.dto.Redsky.RedSkyProduct;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Component
-public class RedSkyDataSource implements ProductDataSource {
+public class RedSkyDataSourceService implements ProductDataSourceService {
 
     private final WebClient client;
     private final AppConfig appConfig;
 
-    public RedSkyDataSource(WebClient client,
-                            AppConfig appConfig) {
+    public RedSkyDataSourceService(WebClient client,
+                                   AppConfig appConfig) {
         this.client = client;
         this.appConfig = appConfig;
     }
@@ -26,7 +25,7 @@ public class RedSkyDataSource implements ProductDataSource {
     private final static String productPath = "/redsky_aggregations/v1/redsky/case_study_v1";
 
     @Override
-    public Product getProductDetailsById(Long productId) throws ServiceException{
+    public Product getProductDetailsById(Long productId) throws ServiceException {
 
         ProductDetailsResponse resp = client.get()
                 .uri(uriBuilder -> uriBuilder

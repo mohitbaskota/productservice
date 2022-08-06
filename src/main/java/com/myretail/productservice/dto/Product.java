@@ -1,4 +1,6 @@
-package com.myretail.productservice.models;
+package com.myretail.productservice.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
@@ -15,11 +17,11 @@ public class Product {
     private String name;
 
     // Current price of the product
+    @JsonProperty("current_price")
     private Currency currentPrice;
 
     public Product() {
     }
-
 
     public Product(Long id, String name, Currency currentPrice) {
         this.id = id;
