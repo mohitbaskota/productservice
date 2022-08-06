@@ -1,4 +1,4 @@
-package com.myretail.productservice.services.datasources;
+package com.myretail.productservice.services.externalsourceservices;
 
 import com.myretail.productservice.config.AppConfig;
 import com.myretail.productservice.exceptions.ServiceException;
@@ -11,13 +11,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Component
-public class RedSkyDataSource implements ProductDataSource {
+public class RedSkyDataSourceService implements ProductDataSourceService {
 
     private final WebClient client;
     private final AppConfig appConfig;
 
-    public RedSkyDataSource(WebClient client,
-                            AppConfig appConfig) {
+    public RedSkyDataSourceService(WebClient client,
+                                   AppConfig appConfig) {
         this.client = client;
         this.appConfig = appConfig;
     }

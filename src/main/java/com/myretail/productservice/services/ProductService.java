@@ -2,15 +2,15 @@ package com.myretail.productservice.services;
 
 import com.myretail.productservice.exceptions.ServiceException;
 import com.myretail.productservice.dto.Product;
-import com.myretail.productservice.services.datasources.ProductDataSource;
+import com.myretail.productservice.services.externalsourceservices.ProductDataSourceService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
 
-    private final ProductDataSource productDataSource;
+    private final ProductDataSourceService productDataSource;
 
-    public ProductService(ProductDataSource productDataSource) {
+    public ProductService(ProductDataSourceService productDataSource) {
         this.productDataSource = productDataSource;
     }
 

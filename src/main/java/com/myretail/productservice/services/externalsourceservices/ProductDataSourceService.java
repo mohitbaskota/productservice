@@ -1,8 +1,8 @@
-package com.myretail.productservice.services.datasources;
+package com.myretail.productservice.services.externalsourceservices;
 
 import com.myretail.productservice.dto.Product;
 
-public interface ProductDataSource {
+public interface ProductDataSourceService {
 
     /**
      * This method the the interface to get the product details from different data source.
