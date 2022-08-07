@@ -17,4 +17,9 @@ public class MongoDBService implements DatabaseService {
     public ProductItem getProductById(Long id) {
         return mongoTemplate.findById(id, ProductItem.class);
     }
+
+    @Override
+    public ProductItem saveProduct(ProductItem productItem) {
+        return mongoTemplate.save(productItem);
+    }
 }

@@ -3,6 +3,7 @@ package com.myretail.productservice.services;
 import com.myretail.productservice.dto.Currency;
 import com.myretail.productservice.exceptions.ServiceException;
 import com.myretail.productservice.dto.Product;
+import com.myretail.productservice.models.Price;
 import com.myretail.productservice.models.ProductItem;
 import com.myretail.productservice.services.databaseservices.DatabaseService;
 import com.myretail.productservice.services.databaseservices.MongoDBService;
@@ -42,5 +43,20 @@ public class ProductService {
             //todo log
             throw e;
         }
+    }
+
+    public Product updateProduct(Product product) {
+        ProductItem productItem = databaseService.getProductById(product.getId());
+        if (productItem == null) {
+            productItem = new ProductItem();
+            productItem.setName(product.getName());
+            productItem.setId(product.getId());
+        }
+        Price price = new Price();
+        price.setValue(product.getCurrentPrice().getValue());
+        price.setCurrency(product.getCurrentPrice().getCurrencyCode());
+        productItem.setCurrentPrice(price);
+        productItem = databaseService.saveProduct(productItem);
+        return Product.fromProductItem(productItem);
     }
 }
