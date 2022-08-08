@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApplicationController {
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/heartbeat", produces = "application/json")
     public String heartBeat() {
         return "{\"status\": \"OK\"}";
     }

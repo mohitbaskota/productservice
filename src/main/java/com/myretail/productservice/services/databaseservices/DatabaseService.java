@@ -5,4 +5,6 @@ import com.myretail.productservice.models.ProductItem;
 public interface DatabaseService {
 
     ProductItem getProductById(Long id);
+
+    ProductItem saveProduct(ProductItem productItem);
 }

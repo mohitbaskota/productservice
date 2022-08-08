@@ -1,6 +1,7 @@
 package com.myretail.productservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.myretail.productservice.models.ProductItem;
 
 import java.util.Objects;
 
@@ -27,6 +28,21 @@ public class Product {
         this.id = id;
         this.name = name;
         this.currentPrice = currentPrice;
+    }
+
+    public static Product fromProductItem(ProductItem productItem) {
+        Product product = new Product();
+        if (productItem == null)
+            return product;
+        product.setId(productItem.getId());
+        product.setName(productItem.getName());
+        Currency currency = new Currency();
+        if (productItem.getCurrentPrice() != null) {
+            currency.setValue(productItem.getCurrentPrice().getValue());
+            currency.setCurrencyCode(productItem.getCurrentPrice().getCurrency());
+            product.setCurrentPrice(currency);
+        }
+        return product;
     }
 
     public Long getId() {
