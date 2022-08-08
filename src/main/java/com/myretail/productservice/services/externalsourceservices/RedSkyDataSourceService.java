@@ -1,6 +1,7 @@
 package com.myretail.productservice.services.externalsourceservices;
 
 import com.myretail.productservice.config.AppConfig;
+import com.myretail.productservice.constants.Constants;
 import com.myretail.productservice.exceptions.ServiceException;
 import com.myretail.productservice.dto.Product;
 import com.myretail.productservice.dto.Redsky.ProductDetailsResponse;
@@ -22,16 +23,14 @@ public class RedSkyDataSourceService implements ProductDataSourceService {
         this.appConfig = appConfig;
     }
 
-    private final static String productPath = "/redsky_aggregations/v1/redsky/case_study_v1";
-
     @Override
     public Product getProductDetailsById(Long productId) throws ServiceException {
 
         ProductDetailsResponse resp = client.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path(productPath)
-                        .queryParam("tcin", productId)
-                        .queryParam("key", appConfig.getRedskyKey())
+                        .path(Constants.PathConstants.REDSKY_PRODUCT_PATH)
+                        .queryParam(Constants.QueryParameterConstants.REDSKY_TCIN, productId)
+                        .queryParam(Constants.QueryParameterConstants.REDSKY_KEY, appConfig.getRedskyKey())
                         .build()
                 )
                 .retrieve()

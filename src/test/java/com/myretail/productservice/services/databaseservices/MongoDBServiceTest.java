@@ -10,11 +10,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
+
 
 
 @ExtendWith(MockitoExtension.class)
@@ -40,18 +40,17 @@ class MongoDBServiceTest {
 
     @Test
     public void testIfProductIsReturned() {
-
         when(mongoTemplate.findById(anyLong(), eq(ProductItem.class))).thenReturn(dbProduct);
-        ProductItem product = mongoDBService.getProductById(anyLong());
-        assertEquals(product, dbProduct);
+        ProductItem product = mongoDBService.getProductById(123L);
+        assertThat(product).isEqualTo(dbProduct);
     }
 
     @Test
     public void testIfNullIsReturnedWhenNotFound() {
 
         when(mongoTemplate.findById(anyLong(), eq(ProductItem.class))).thenReturn(null);
-        ProductItem product = mongoDBService.getProductById(anyLong());
-        assertNull(product);
+        ProductItem product = mongoDBService.getProductById(123L);
+        assertThat(product).isEqualTo(null);
     }
 
     @Test
@@ -59,6 +58,6 @@ class MongoDBServiceTest {
 
         when(mongoTemplate.save(dbProduct)).thenReturn(dbProduct);
         ProductItem product = mongoDBService.saveProduct(dbProduct);
-        assertEquals(product, dbProduct);
+        assertThat(product).isEqualTo(dbProduct);
     }
 }
