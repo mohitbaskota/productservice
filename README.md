@@ -88,7 +88,7 @@ Run the docker container
 docker run --network host -e APP_REDSKY_URL='https://redsky-uat.perf.target.com' -e APP_REDSKY_KEY='API Key' productservice
 ```
 
-### 3. Testing the Application
+### 4. Testing the Application
 
 The application has unit tests written and covers some of the basic scenarios. Run the following 
 command to execute the unit tests.
