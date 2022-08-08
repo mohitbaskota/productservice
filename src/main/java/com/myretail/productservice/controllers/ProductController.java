@@ -29,7 +29,6 @@ public class ProductController {
             ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid request. Please check that request format is correct.");
             return null;
         } else {
-
             return productService.updateProduct(product);
         }
     }

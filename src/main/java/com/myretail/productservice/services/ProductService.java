@@ -46,6 +46,7 @@ public class ProductService {
     }
 
     public Product updateProduct(Product product) {
+        if (product == null) return null;
         ProductItem productItem = databaseService.getProductById(product.getId());
         if (productItem == null) {
             productItem = new ProductItem();
