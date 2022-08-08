@@ -61,6 +61,13 @@ This will produce a build artifact under {PROJECT_ROOT}/build/lib/productservice
 ### 3. Running the SpringBoot Application
 There are a couple of options on how to run the program.
 #### Option 1: Run packaged jar directly 
+
+First set the necessary environment variables
+```
+export APP_REDSKY_URL=https://redsky-uat.perf.target.com
+export APP_REDSKY_KEY=GIVEN_API_KEY
+```
+
 Use following command to run the application built in last step
 ```
 java -jar {PROJECT_ROOT}/productservice/build/libs/productservice-0.0.1-SNAPSHOT.jar
@@ -79,4 +86,22 @@ First build the docker image
 Run the docker container
 ```
 docker run --network host -e APP_REDSKY_URL='https://redsky-uat.perf.target.com' -e APP_REDSKY_KEY='API Key' productservice
+```
+
+### 4. Testing the Application
+
+The application has unit tests written and covers some of the basic scenarios. Run the following 
+command to execute the unit tests.
+```
+./gradlew clean build test
+```
+
+#### Using Postman to test the Application
+
+The repository contains postman collection in {PROJECT_ROOT}/postman directory which can be used to 
+test the endpoints once the application is up and running.
+
+Use the following endpoint to check if the application is up and running.
+```
+GET http://localhost:8080/heartbeat
 ```
