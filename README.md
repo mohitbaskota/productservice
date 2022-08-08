@@ -61,6 +61,13 @@ This will produce a build artifact under {PROJECT_ROOT}/build/lib/productservice
 ### 3. Running the SpringBoot Application
 There are a couple of options on how to run the program.
 #### Option 1: Run packaged jar directly 
+
+First set the necessary environment variables
+```
+export APP_REDSKY_URL=https://redsky-uat.perf.target.com
+export APP_REDSKY_KEY=GIVEN_API_KEY
+```
+
 Use following command to run the application built in last step
 ```
 java -jar {PROJECT_ROOT}/productservice/build/libs/productservice-0.0.1-SNAPSHOT.jar
