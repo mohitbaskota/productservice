@@ -87,3 +87,21 @@ Run the docker container
 ```
 docker run --network host -e APP_REDSKY_URL='https://redsky-uat.perf.target.com' -e APP_REDSKY_KEY='API Key' productservice
 ```
+
+### 3. Testing the Application
+
+The application has unit tests written and covers some of the basic scenarios. Run the following 
+command to execute the unit tests.
+```
+./gradlew clean build test
+```
+
+#### Using Postman to test the Application
+
+The repository contains postman collection in {PROJECT_ROOT}/postman directory which can be used to 
+test the endpoints once the application is up and running.
+
+Use the following endpoint to check if the application is up and running.
+```
+GET http://localhost:8080/heartbeat
+```

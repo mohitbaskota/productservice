@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "8d5541b7-b00f-41fd-b3cb-0d7572b41f81",
+		"name": "Target Case Study",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Products from Redsky",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product Price",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 13860428,\n    \"name\": \"The Big Lebowski\",\n    \"current_price\": {\n        \"value\": 50,\n        \"currency_code\": \"USD\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/13860428",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"13860428"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HeartBeat",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
