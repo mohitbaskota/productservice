@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
 
-    private final ProductDataSourceService productDataSource;
+    private final ProductDataSourceService productDataSourceService;
     private final DatabaseService databaseService;
 
-    public ProductService(ProductDataSourceService productDataSource,
+    public ProductService(ProductDataSourceService productDataSourceService,
                           MongoDBService mongoDBService) {
-        this.productDataSource = productDataSource;
+        this.productDataSourceService = productDataSourceService;
         this.databaseService = mongoDBService;
     }
 
@@ -26,7 +26,7 @@ public class ProductService {
 
         try {
             // fetch the product information from product data source (gives name)
-            Product product = productDataSource.getProductDetailsById(productId);
+            Product product = productDataSourceService.getProductDetailsById(productId);
 
             // fetch the product from the database if it exists
             ProductItem dbProduct = databaseService.getProductById(productId);
